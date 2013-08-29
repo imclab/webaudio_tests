@@ -1,7 +1,7 @@
 (function () {
     var context = new webkitAudioContext(),
         fileName = "test.aac",
-        numberOfTimes = 10000,
+        numberOfTimes = 1000,
         ref = numberOfTimes,
         display = document.querySelector(".num");
 
@@ -9,17 +9,17 @@
         fileName = "test.ogg";
     }
 
-    function noop () {
+    function ondecode () {
         console.log("decoded", ref - numberOfTimes);
         return --numberOfTimes && next(), (display.innerHTML = ref - numberOfTimes);
     }
     function onload () {
-        context.decodeAudioData(this.response, noop, onerror);
+        context.decodeAudioData(this.response, ondecode, onerror);
         this.response = null;
     }
     function onerror () {
         numberOfTimes = 0;
-        display.innerHTML = "ERROR";
+        display.innerHTML = "error loading/decoding data";
         console.log("error loading/decoding data");
     }
     function next () {
