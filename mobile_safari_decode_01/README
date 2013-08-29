@@ -1,0 +1,8 @@
+DESCRIPTION:
+This test checks if decoding a single file many times without maintaining
+a reference to the arraybuffer or the decoded audiobuffer.
+
+RESULT:
+Safari mobile 6.0 on iPad3 crashed at ~600 decodes.
+
+
