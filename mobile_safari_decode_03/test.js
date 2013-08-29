@@ -10,12 +10,8 @@
         buffers = [],
         fileSize;
 
-    var iOS = !!navigator.userAgent.match(/(iPad|iPhone|iPod)/g);
-    if (!iOS) {
-        numSpan.parentElement.removeChild(numSpan);
-        mbSpan.parentElement.removeChild(mbSpan);
-        document.body.innerHTML = "Please open this test on an iOS device in mobile safari 6.0 or later.";
-        return;
+    if (!navigator.userAgent.match(/(iPad|iPhone|iPod)/g)) {
+        fileName = "test.ogg";
     }
 
     function mb (bytes) {
@@ -48,13 +44,14 @@
         numSpam.innerHTML = mbSpan.innerHTML = "ERROR";
         console.log("error loading/decoding data");
     }
-    document.querySelector(".start").addEventListener("touchstart", function () {
+    function onclick () {
         xhr.open("GET", fileName, true);
         xhr.responseType = "arraybuffer";
         xhr.addEventListener("load", onload, false);
         xhr.addEventListener("error", onerror, false);
         xhr.send(null);
-    });
-    console.log("1");
+    }
+    document.querySelector(".start")
+        .addEventListener("createTouch" in document ? "touchstart" : "mousedown", onclick);
 })();
 
