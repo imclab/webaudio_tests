@@ -1,0 +1,24 @@
+SYSTEM INFO:
+ipad 3, ios, mobile safari 6
+
+DESCRIPTION:
+In this test case. Only one request is made for a single buffer.
+The buffer is then decoded n times without keeping a reference to the decoded audiobuffer.
+
+RESULT:
+    1k FILES :
+        Test 1: Successfully decoded 1000 files
+        Test 2: Crashed after ~800 files
+        Test 3: Successfully decoded 1000 files
+        Test 4: Successfully decoded 1000 files
+        Test 5: Successfully decoded 1000 files
+        Test 6: Successfully decoded 1000 files
+        Test 7: Successfully decoded 1000 files
+        Test 8: Successfully decoded 1000 files
+        Test 9: Crashed after ~400 files
+        Test 10: Successfully decoded 1000 files
+    5k FILES:
+        Test 1: Crashed after ~400 files
+        Test 2: Crashed after ~1200 files
+
+

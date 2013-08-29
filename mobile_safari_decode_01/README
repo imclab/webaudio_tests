@@ -1,8 +1,11 @@
+SYSTEM INFO:
+ipad 3, ios, mobile safari 6
+
 DESCRIPTION:
 This test checks if decoding a single file many times without maintaining
-a reference to the arraybuffer or the decoded audiobuffer.
+a reference to the arraybuffer or the decoded audiobuffer produces a crash in mobile safari.
 
 RESULT:
-Safari mobile 6.0 on iPad3 crashed at ~600 decodes.
+Crashes every time at ~600 decodes.
 
 

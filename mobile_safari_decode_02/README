@@ -1,0 +1,14 @@
+SYSTEM INFO:
+ipad 3, ios, mobile safari 6
+
+DESCRIPTION:
+This test checks if re-using the same XHR still causes safari to not garbage collect.
+
+RESULT:
+    Test 1: Successfully decoded 1000 files
+    Test 2: Crashed after ~500 files
+    Test 3: Successfully decoded 1000 files
+    Test 4: Crashed after ~500 files
+    Test 5: Crashed after ~900 files
+
+
