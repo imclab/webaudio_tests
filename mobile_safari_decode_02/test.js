@@ -5,8 +5,14 @@
         ref = numberOfTimes,
         xhr = new XMLHttpRequest(),
         display = document.querySelector(".num"),
-        fileSize;
+        fileSize,
+        iOS = !!navigator.userAgent.match(/(iPad|iPhone|iPod)/g);
 
+    if (!iOS) {
+        display.parentElement.removeChild(display);
+        document.body.innerHTML = "Please open this test on an iOS device in mobile safari 6.0 or later.";
+        return;
+    }
     function log () {
         var num = ref - numberOfTimes;
         //console.log("decoded", num, ",", (num * fileSize) / 1024, "kb");

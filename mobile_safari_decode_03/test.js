@@ -10,6 +10,14 @@
         buffers = [],
         fileSize;
 
+    var iOS = !!navigator.userAgent.match(/(iPad|iPhone|iPod)/g);
+    if (!iOS) {
+        numSpan.parentElement.removeChild(numSpan);
+        mbSpan.parentElement.removeChild(mbSpan);
+        document.body.innerHTML = "Please open this test on an iOS device in mobile safari 6.0 or later.";
+        return;
+    }
+
     function mb (bytes) {
         return "\n" + (bytes / 1048576).toFixed(4);
     }

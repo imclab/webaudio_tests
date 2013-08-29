@@ -3,9 +3,14 @@
         fileName = "test.aac",
         numberOfTimes = 10000,
         ref = numberOfTimes,
-        display = document.querySelector(".num");
+        display = document.querySelector(".num"),
+        iOS = !!navigator.userAgent.match(/(iPad|iPhone|iPod)/g);
 
-
+    if (!iOS) {
+        display.parentElement.removeChild(display);
+        document.body.innerHTML = "Please open this test on an iOS device in mobile safari 6.0 or later.";
+        return;
+    }
     function noop () {
         console.log("decoded", ref - numberOfTimes);
         return --numberOfTimes && next(), (display.innerHTML = ref - numberOfTimes);
